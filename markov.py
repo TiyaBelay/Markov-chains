@@ -7,8 +7,10 @@ def open_and_read_file(file_path):
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-    file_doc = open("green-eggs.txt")
-    file_doc = file_doc.read()
+    # file_doc = open("green-eggs.txt")
+    # file_doc = file_doc.read()
+    # same as below
+    file_doc = open("green-eggs.txt").read()
 
     # print file_doc
     return file_doc  
@@ -24,15 +26,39 @@ def make_chains(text_string):
 
     For example:
 
-        >>> make_chains("hi there mary hi there juanita")
-        {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
+        >>> make_chains("hi there mary hi there juanita hi there hi")
+        {('hi', 'there'): ['mary', 'juanita', 'hi'], 
+        ('there', 'mary'): ['hi'], 
+        ('mary', 'hi': ['there']
+        ('there', 'juanita'): ['hi']
+        ('juanita', 'hi'): ['there']
+        }
     """
 
     chains = {}
 
-    # your code goes here
+    # splits the white spaces and line characters in text_string 
+    text_string = text_string.split()
+    # print text_string
 
-    return chains
+    # for every word in the length of the text_string give us the range
+    # minus the last word in the text_string
+    for word in range(len(text_string)-1):
+        # print every word in the text_string 
+        # plus the following word
+        key = text_string[word], text_string[word + 1]
+        # print text_string[word], text_string[word + 1]
+
+        # Bind the second word in the text_string to the variable value
+        value = text_string[word + 2]  #put the value in a list
+        print key, value
+
+        # bind the value to the key and then add it to the dictionary chains
+
+
+    
+
+    # return chains
 
 
 def make_text(chains):
