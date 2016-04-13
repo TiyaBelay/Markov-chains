@@ -53,15 +53,15 @@ def make_chains(text_string):
         key = (text_words[index], text_words[index + 1])
         # print text_string[index], text_string[index + 1] #(checkpoint)
 
-        # Bind the third index at index[2] in the text_string to the variable value
-        third_word = text_words[index + 2]  #put the value in a list
-        # print key, value  #(checkpoint)
+        # Bind the third index at index[2] in the text_string to the variable third_word
+        third_word = text_words[index + 2]  #put the third_word in a list
+        # print key, third_word   #(checkpoint)
 
         if key in chains:
 
             chains[key].append(third_word)        
         else:
-        # bind the value to the key and then add it to the dictionary chains
+        # bind the third_word to the key and then add it to the dictionary chains
             chains[key] = [third_word]
 
     print chains #(checkpoint)
