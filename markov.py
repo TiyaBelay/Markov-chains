@@ -53,35 +53,31 @@ def make_chains(text_string):
         key = (text_words[index], text_words[index + 1])
         # print text_string[index], text_string[index + 1] #(checkpoint)
 
-        # Bind the third index at index[2] in the text_string to the variable third_word
-        third_word = text_words[index + 2]  #put the third_word in a list
-        # print key, third_word   #(checkpoint)
+        # Bind the third index at index[2] in the text_string to the variable new_value (is the value)
+        new_value = text_words[index + 2]  
+        # print key, new_value   #(checkpoint)
 
-        if key in chains:
-
-            chains[key].append(third_word)        
+        if key not in chains:
+            # add the new_value 'AS THE' value in the chains dictionary
+            chains[key] = [new_value]  #also puts the new_value in a list
         else:
-        # bind the third_word to the key and then add it to the dictionary chains
-            chains[key] = [third_word]
+            # chains[key] is equal to the value, not the key
+            # if the key is IN the chains dictionary, append the new_value 
+            chains[key].append(new_value)            
 
-    print chains #(checkpoint)
-
-       
-
-
-    
-
-    # return chains
+    # print chains #(checkpoint)
+    return make_chains
 
 
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
-    text = ""
+    # text = ""
 
-    # your code goes here
+    new_key = chains.keys[], random.choice[chains[key]]
+    print new_key
 
-    return text
+    # return text
 
 
 input_path = "green-eggs.txt"
