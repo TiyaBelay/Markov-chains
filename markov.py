@@ -43,25 +43,30 @@ def make_chains(text_string):
 
     # for every word in the length of the text_string give us the range
     # minus the last word in the text_string
-    for item in range(len(text_words)-2):
-        # shortest the range of our list so we don't exceed the key:value pairs
-        # print word #(checkpoint)
+    for index in range(len(text_words)-2):
+        # shortens the range of our list so we don't exceed the key:value pairs
+        # print index #(checkpoint)
 
-        # Binds the first word at index[0] in the text_string to key 
-        # plus, binds the second word at index[1] to key 
-        # to create a tuple of the two words
-        key = (text_words[item], text_words[item + 1])
-        # print text_string[word], text_string[word + 1] #(checkpoint)
+        # Binds the first index at index[0] in the text_string to key 
+        # plus, binds the second index at index[1] to key 
+        # to create a tuple of the two windex
+        key = (text_words[index], text_words[index + 1])
+        # print text_string[index], text_string[index + 1] #(checkpoint)
 
-        # Bind the third word at index[2] in the text_string to the variable value
-        value = [text_words[item + 2]]  #put the value in a list
+        # Bind the third index at index[2] in the text_string to the variable value
+        third_word = text_words[index + 2]  #put the value in a list
         # print key, value  #(checkpoint)
 
+        if key in chains:
 
-        chains[key] = value
-        print chains
-
+            chains[key].append(third_word)        
+        else:
         # bind the value to the key and then add it to the dictionary chains
+            chains[key] = [third_word]
+
+    print chains #(checkpoint)
+
+       
 
 
     
