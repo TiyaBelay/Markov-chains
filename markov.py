@@ -1,4 +1,6 @@
 from random import choice
+# imports choice() function from the random library
+# see fuction at line 74
 
 
 def open_and_read_file(file_path):
@@ -66,7 +68,7 @@ def make_chains(text_string):
             chains[key].append(new_value)            
 
     # print chains #(checkpoint)
-    return make_chains
+    return chains
 
 
 def make_text(chains):
@@ -74,8 +76,11 @@ def make_text(chains):
 
     # text = ""
 
-    new_key = chains.keys[], random.choice[chains[key]]
-    print new_key
+    # choice- randomizes paired keys and binding it to the variable new_key
+    # chains.key()- returns a list of keys 
+    new_key = choice(chains.keys()) 
+    # print new_key  #(checkpoint)
+
 
     # return text
 
@@ -91,4 +96,4 @@ chains = make_chains(input_text)
 # Produce random text
 random_text = make_text(chains)
 
-print random_text
+# print random_text
