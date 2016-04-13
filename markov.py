@@ -12,7 +12,7 @@ def open_and_read_file(file_path):
     # same as below
     file_doc = open("green-eggs.txt").read()
 
-    # print file_doc
+    # print file_doc #(checkpoint)
     return file_doc  
     # "This should be a variable that contains your file text as one long string"
 
@@ -38,20 +38,28 @@ def make_chains(text_string):
     chains = {}
 
     # splits the white spaces and line characters in text_string 
-    text_string = text_string.split()
-    # print text_string
+    text_words = text_string.split()
+    # print text_string #(checkpoint)
 
     # for every word in the length of the text_string give us the range
     # minus the last word in the text_string
-    for word in range(len(text_string)-1):
-        # print every word in the text_string 
-        # plus the following word
-        key = text_string[word], text_string[word + 1]
-        # print text_string[word], text_string[word + 1]
+    for item in range(len(text_words)-2):
+        # shortest the range of our list so we don't exceed the key:value pairs
+        # print word #(checkpoint)
 
-        # Bind the second word in the text_string to the variable value
-        value = text_string[word + 2]  #put the value in a list
-        print key, value
+        # Binds the first word at index[0] in the text_string to key 
+        # plus, binds the second word at index[1] to key 
+        # to create a tuple of the two words
+        key = (text_words[item], text_words[item + 1])
+        # print text_string[word], text_string[word + 1] #(checkpoint)
+
+        # Bind the third word at index[2] in the text_string to the variable value
+        value = [text_words[item + 2]]  #put the value in a list
+        # print key, value  #(checkpoint)
+
+
+        chains[key] = value
+        print chains
 
         # bind the value to the key and then add it to the dictionary chains
 
