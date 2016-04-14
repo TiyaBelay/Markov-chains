@@ -77,12 +77,37 @@ def make_text(chains):
     # text = ""
 
     # choice- randomizes paired keys and binding it to the variable new_key
-    # chains.key()- returns a list of keys 
-    new_key = choice(chains.keys()) 
+    # chains.key()- returns a list of keys
+    # but function choice gives us only one random element within the list as a tuple
+    new_key = choice(chains.keys())
     # print new_key  #(checkpoint)
 
+    # converts the tuple, new_key, into a list and binds it to variable words
+    words = [new_key[0], new_key[1]]
+    # print words  #(checkpoint) 
 
-    # return text
+    while new_key in chains:
+        # Keep looping until we have a new_key that isn't in the chains dictionary
+        # (which would mean it was the end of our original text)
+        #
+        # Note that for long texts (like a full book), this might mean
+        # it would run for a very long time.
+
+        # Gives us a random value that is attached to that random key and bind it to the variable word
+        word = choice(chains[new_key])
+        # print word #(checkpoint)
+
+        # appends the random value to the "words" list (which is the key in the dictionary)
+        words.append(word)
+
+        # takes the second item in the element(pair) at index[1] 
+        # plus the random word and re-binds it to the new_key variable
+        new_key = (new_key[1], word)
+        print new_key #(checkpoint)
+
+        # print " ".join(words) #(checkpoint)
+    # joins the random words into a string with a space seperating each word.
+    return " ".join(words)
 
 
 input_path = "green-eggs.txt"
