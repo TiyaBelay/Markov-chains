@@ -1,6 +1,6 @@
 from random import choice
 # imports choice() function from the random library
-# see fuction at line 74
+# see fuction example at line 74
 
 
 def open_and_read_file(file_path):
